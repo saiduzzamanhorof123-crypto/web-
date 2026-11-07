@@ -1,0 +1,101 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-main: #F7F8FC;
+    --bg-card: #FFFFFF;
+    --bg-secondary: #EDF1F7;
+    --text-main: #172033;
+    --text-muted: #64748B;
+    --border-subtle: #E2E8F0;
+    --accent-purple: #7C3AED;
+    --accent-cyan: #0891B2;
+  }
+
+  .dark {
+    --bg-main: #080B14;
+    --bg-card: #111827;
+    --bg-secondary: #101626;
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --accent-purple: #8B5CF6;
+    --accent-cyan: #22D3EE;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Space Grotesk', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Futuristic background grid */
+.futuristic-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+}
+
+.dark .futuristic-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(139, 92, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+}
+
+/* Radial ambient glowing orbs */
+.glow-purple {
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0) 70%);
+}
+
+.glow-cyan {
+  background: radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.12) 0%, rgba(34, 211, 238, 0) 70%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080B14;
+}
+
+.light ::-webkit-scrollbar-track {
+  background: #F7F8FC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27273a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a3b77;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s infinite;
+}
